@@ -31,9 +31,10 @@ jobs:
             pwd
       # Runs a single command using the runners shell
       - name: Install-Module
+        shell: powershell
         run:  |
             Install-Module -Name Pester
-            Get-Module -Name Pester
-        shell: powershell
+            Invoke-Pester
+        
 
       

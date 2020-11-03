@@ -30,10 +30,10 @@ jobs:
             cd ps
             pwd
       # Runs a single command using the runners shell
-      - name: Unit Test
+      - name: Install-Module
         run:  |
-        Install-Module -Name Pester
-        Get-Module -Name Pester
+            Install-Module -Name Pester
+            Get-Module -Name Pester
         shell: powershell
 
       

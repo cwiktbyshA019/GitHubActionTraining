@@ -31,7 +31,7 @@ jobs:
             pwd
       # Run GetStation
       - name: GetStation
-      run:  ./GetStation.ps1 1070061       
+        run:  ./GetStation.ps1 1070061       
 
       # Unit Test
       - name: Install-Module

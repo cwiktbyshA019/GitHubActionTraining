@@ -31,7 +31,9 @@ jobs:
             pwd
       # Runs a single command using the runners shell
       - name: Unit Test
-        run: Get-Module -Name Pester
+        run:  |
+        Install-Module -Name Pester
+        Get-Module -Name Pester
         shell: powershell
 
       

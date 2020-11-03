@@ -29,7 +29,8 @@ jobs:
         run: |
             cd ps
             pwd
-            Invoke-Pester    
+            $res=Invoke-Pester -OutputFormat NUnitXml -PassThru
+            $res.Failed.Count   
 
 
       

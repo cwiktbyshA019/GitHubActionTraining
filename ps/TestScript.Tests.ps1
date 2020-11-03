@@ -4,7 +4,7 @@ Split-Path -Leaf $MyInvocation.MyCommand.Path
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 . "$here\$sut"
-"$here\$sut"
+Write-Host "$here\$sut"
 Describe "TestScript" {
     It "郵便番号1070061から最寄り駅を取得" {
         TestScript 1070061 | Should Be "外苑前"

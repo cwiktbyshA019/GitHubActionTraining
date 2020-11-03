@@ -32,5 +32,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Unit Test
         run: Get-Module -Name Pester
+        shell: powershell
 
       

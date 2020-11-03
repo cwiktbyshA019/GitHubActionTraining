@@ -5,7 +5,7 @@ Split-Path -Leaf $MyInvocation.MyCommand.Path
 $here = Split-Path -Parent $MyInvocation.MyCommand.Path
 $sut = (Split-Path -Leaf $MyInvocation.MyCommand.Path) -replace '\.Tests\.', '.'
 . "$here\$sut"
-"$here\$sut"
+Write-Host "$here\$sut"
 #>
 function TestScript($postal) {
     return ./GetStation.ps1 $postal

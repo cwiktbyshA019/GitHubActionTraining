@@ -31,6 +31,6 @@ jobs:
             pwd
       # Runs a single command using the runners shell
       - name: Unit Test
-        run: Invoke-Pester
+        run: Get-Module -Name Pester
 
       

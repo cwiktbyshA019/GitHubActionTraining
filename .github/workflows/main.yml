@@ -35,7 +35,7 @@ jobs:
             $Payload = {
               \"failcount \": $res.FailedCount
             }
-            Invoke-RestMethod -Method Post -Uri ${SLACK_WEBHOOK_URI} -Body (ConvertTo-Json $Payload)
+            Invoke-RestMethod -Method Post -Uri $SLACK_WEBHOOK_URI -Body (ConvertTo-Json $Payload)
         env:
           SLACK_WEBHOOK_URI: ${{ secrets.SLACK_WEBHOOK_URI }}
 

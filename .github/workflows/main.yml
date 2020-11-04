@@ -9,6 +9,8 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
+env:
+    SLACK_WEBHOOK_URI: ${{ secrets.SLACK_WEBHOOK_URI }}
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,7 +32,12 @@ jobs:
             cd ps
             pwd
             $res=Invoke-Pester -OutputFormat NUnitXml -PassThru
-            $res.Failed.Count   
+            $res.FailedCount
+            $res.PassedCount 
+            $Payload = {
+              "failcount" : $res.FailedCount
+            }
+            Invoke-RestMethod -Method Post -Uri ${SLACK_WEBHOOK_URI} -Body (ConvertTo-Json $Payload)
 
 
       

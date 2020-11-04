@@ -34,12 +34,10 @@ jobs:
             $res=Invoke-Pester -OutputFormat NUnitXml -PassThru
             $res.FailedCount
             $res.PassedCount
-            ${{ secrets.SLACK_WEBHOOK_URI }}.Length
-            $SLACK_WEBHOOK_URI.Length
             $Payload = {
               \"failcount \": $res.FailedCount
             }
-            Invoke-RestMethod -Method Post -Uri $SLACK_WEBHOOK_URI -Body (ConvertTo-Json $Payload)
+            Invoke-RestMethod -Method Post -Uri ${{ secrets.SLACK_WEBHOOK_URI }} -Body (ConvertTo-Json $Payload)
 
 
 

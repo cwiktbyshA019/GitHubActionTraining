@@ -34,7 +34,7 @@ jobs:
             $res = Invoke-Pester -OutputFormat NUnitXml -PassThru
             $failcount = [int]$res.FailedCount
             $okcount = [int]$res.PassedCount
-            $username = ${{github.actor}} 
+            $username = [string] ${{github.actor}}
             $payload = "{`"failcount`":`"$failcount`", `"okcount`":`"$okcount`", `"username`":`"$username`"}"
             Invoke-RestMethod -Method Post -Uri ${{ secrets.SLACK_WEBHOOK_URI }} -Body $payload -ContentType "application/json"
 

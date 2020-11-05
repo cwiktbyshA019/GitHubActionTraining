@@ -12,6 +12,6 @@ Describe "GetStationTest" {
         GetStationTest 1010051 | Should -Be "神保町"
     }
     It "郵便番号1500001から最寄り駅を取得" {
-        GetStationTest 1500001 | Should -Be "明治神宮前〈原宿〉"
+        GetStationTest 1500001 | Should -Be "外苑前〉"
     }
 }

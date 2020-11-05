@@ -31,11 +31,11 @@ jobs:
         run: |
             cd ps
             pwd
-            $res=Invoke-Pester -OutputFormat NUnitXml -PassThru
-            $res.FailedCount
-            $failcount = [int]$res.PassedCount
-            $Payload = "{`"failcount`":`"$failcount`" }"
-            Invoke-RestMethod -Method Post -Uri ${{ secrets.SLACK_WEBHOOK_URI }} -Body $Payload -ContentType "application/json"
+            $res = Invoke-Pester -OutputFormat NUnitXml -PassThru
+            $failcount = [int]$res.FailedCount
+            $okcount = [int]$res.PassedCount
+            $payload = "{`"failcount`":`"$failcount`", `"okcount`":`"$okcount`"}"
+            Invoke-RestMethod -Method Post -Uri ${{ secrets.SLACK_WEBHOOK_URI }} -Body $payload -ContentType "application/json"
 
 
 

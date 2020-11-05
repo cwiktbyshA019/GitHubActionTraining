@@ -33,8 +33,8 @@ jobs:
             pwd
             $res=Invoke-Pester -OutputFormat NUnitXml -PassThru
             $res.FailedCount
-            $res.PassedCount
-            $Payload = "{`"failcount`":`"$res.FailedCount`" }"
+            $failcount = [int]$res.PassedCount
+            $Payload = "{`"failcount`":`"$failcount`" }"
             Invoke-RestMethod -Method Post -Uri ${{ secrets.SLACK_WEBHOOK_URI }} -Body $Payload -ContentType "application/json"
 
 

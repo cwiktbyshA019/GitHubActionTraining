@@ -1,0 +1,4 @@
+# GitHubActionTraining
+PowerShellを使ったシステムの自動テストとActionsの練習用リポジトリです。
+
+
